@@ -26,7 +26,7 @@ The created jar file will be located under target/players-checker-1.0.0.jar
 2. Create a new topic named 'novice-players' in kafka using the following command: 
         bin/kafka-topics.sh --create --topic novice-players --bootstrap-server localhost:9092
 3. To run the app 
-    - Using maven: mvnw spring-boot:run
+    - Using maven: mvn spring-boot:run
     - Running the jar file: java -jar target/players-checker-1.0.0.jar 
 ```
 
