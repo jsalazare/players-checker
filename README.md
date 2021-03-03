@@ -25,7 +25,9 @@ The created jar file will be located under target/players-checker-1.0.0.jar
 1. Zookeeper and Apache kafka should be running 
 2. Create a new topic named 'novice-players' in kafka using the following command: 
         bin/kafka-topics.sh --create --topic novice-players --bootstrap-server localhost:9092
-3. To run the app execute: java -jar target/players-checker-1.0.0.jar
+3. To run the app 
+    - Using maven: mvnw spring-boot:run
+    - Running the jar file: java -jar target/players-checker-1.0.0.jar 
 ```
 
 To read the events sent to the `novice-players` topic open a new command line, go to your kafka folder and run the command below:
