@@ -20,11 +20,11 @@ public class PlayerServiceImpl implements PlayerService {
 
     private KafkaProducer kafkaProducer;
 
-
     public PlayerServiceImpl(PlayerRepository playerRepository, KafkaProducer kafkaProducer) {
         this.playerRepository = playerRepository;
         this.kafkaProducer = kafkaProducer;
     }
+
 
     @Override
     public List<String> processPlayers(List<PlayerDTO> players) {
