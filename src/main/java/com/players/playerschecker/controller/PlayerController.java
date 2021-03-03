@@ -3,12 +3,12 @@ package com.players.playerschecker.controller;
 
 import java.util.List;
 
-import javax.annotation.Resource;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Validator;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +24,8 @@ import com.players.playerschecker.service.PlayerService;
 @RequestMapping("/player-checker/v1/player")
 public class PlayerController {
 
+    private static final Logger logger = LoggerFactory.getLogger(PlayerController.class);
+
     private PlayerService playerService;
 
     private PlayerValidator playerValidator;
@@ -35,6 +37,8 @@ public class PlayerController {
 
     @PostMapping(value="/process")
      public ResponseEntity<ProcessPlayersResponse> processPlayers (@RequestBody ProcessPlayersRequest players, BindingResult bindingResult) throws InvalidPlayerException {
+        logger.debug("processing players started");
+
         playerValidator.validatePlayersList(players.getPlayers(), bindingResult);
 
         if (bindingResult.hasErrors()){
@@ -51,6 +55,7 @@ public class PlayerController {
 
     @ExceptionHandler(InvalidPlayerException.class)
     public ResponseEntity<String> handleInvalidPlayerException(InvalidPlayerException ex) {
+        logger.error("InvalidPlayerException: " + ex.getErrorList());
         return new ResponseEntity<String>("Invalid player. " + ex.getErrorList(), HttpStatus.UNPROCESSABLE_ENTITY);
     }
 }
