@@ -57,7 +57,7 @@ It returns a list in the following format:
 
 To run tests execute `mvn test`
 
-##Optional
+## Optional
 
 You can have a look at H2 inserted data by going to the endpoint http://localhost:8181/h2-console
 ```
