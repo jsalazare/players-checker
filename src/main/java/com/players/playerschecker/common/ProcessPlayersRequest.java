@@ -2,19 +2,17 @@ package com.players.playerschecker.common;
 
 import java.util.List;
 
-import com.players.playerschecker.common.dbmodels.Player;
-
 public class ProcessPlayersRequest {
 
 
-    List<Player> players;
+    List<PlayerDTO> players;
 
 
-    public List<Player> getPlayers() {
+    public List<PlayerDTO> getPlayers() {
         return players;
     }
 
-    public void setPlayers(List<Player> players) {
+    public void setPlayers(List<PlayerDTO> players) {
         this.players = players;
     }
 }

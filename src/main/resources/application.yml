@@ -1,2 +1,9 @@
 server:
   port: 8181
+
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+app:
+  topics:
+    novice-players-topic: novice-players
